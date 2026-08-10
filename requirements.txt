@@ -1,0 +1,11 @@
+torch>=2.0.0
+numpy>=1.24.0
+pyyaml>=6.0
+matplotlib>=3.7.0
+tqdm>=4.65.0
+
+# Optional: only needed to parse real PDB/mmCIF files in src/data.py
+biotite>=0.39.0
+
+# Dev
+pytest>=7.4.0

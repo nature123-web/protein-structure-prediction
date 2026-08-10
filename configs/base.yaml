@@ -1,0 +1,36 @@
+seed: 42
+out_dir: runs/base
+
+data:
+  # Directory of .pdb / .cif files. If null, the synthetic generator is used.
+  data_dir: null
+  n_synthetic_train: 400
+  n_synthetic_val: 60
+  min_length: 60
+  max_length: 256
+  crop_size: 128
+
+model:
+  d_model: 128
+  n_heads: 4
+  n_encoder_layers: 4
+  dim_feedforward: 256
+  n_conv_blocks: 8
+  conv_channels: 64
+  # Dilation cycle for the 2D tower; widens receptive field without more depth.
+  dilations: [1, 2, 4, 8]
+  num_bins: 24
+  min_dist: 2.0
+  max_dist: 22.0
+  dropout: 0.1
+
+train:
+  epochs: 20
+  batch_size: 4
+  lr: 0.001
+  weight_decay: 0.0001
+  grad_clip: 1.0
+  warmup_steps: 100
+  early_stopping_patience: 5
+  num_workers: 0
+  device: auto
