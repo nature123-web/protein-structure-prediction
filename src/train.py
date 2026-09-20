@@ -83,7 +83,7 @@ def run_epoch(model, loader, cfg, device, optimizer=None, scheduler=None):
             if scheduler is not None:
                 scheduler.step()
 
-        totals["loss"] += float(loss) * seq.shape[0]
+        totals["loss"] += float(loss.detach()) * seq.shape[0]
         totals["n"] += seq.shape[0]
 
         if not training:
